@@ -1,9 +1,8 @@
-FROM fluent/fluentd:latest
+FROM fluent/fluentd:v0.12-latest
 MAINTAINER osawagiboy <osawagiboy@gmail.com>
 
 USER root
 RUN apt-get update -y && apt-get install -y libmysqlclient-dev && rm -rf /var/lib/apt/lists/*
-RUN echo "Asia/Tokyo" > /etc/timezone
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 USER ubuntu
